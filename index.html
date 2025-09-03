@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 
+      Webflow Implementation Notes:
+      - Build this structure visually in the Webflow Designer.
+      - The top-level element is a Div Block with the class "accordion-container".
+      - Inside, each accordion is a Div Block with the class "accordion-item".
+      - Each "accordion-item" contains a Div Block with class "accordion-wrapper".
+      - Inside the wrapper, you'll have the "accordion-header" Div Block and the "accordion-content" Div Block.
+    -->
+    <div class="accordion-container">
+        <div class="accordion-item is-open">
+            <div class="accordion-wrapper">
+                <div class="accordion-header"><h2>Rapid prototyping</h2></div>
+                <div class="accordion-content">
+                    <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+                    <a href="">Learn more</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="accordion-item">
+        <div class="accordion-wrapper">
+          <div class="accordion-header"><h2>Medical device startup help</h2></div>
+          <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+          </div>
+        </div>
+      </div>
+    
+        <div class="accordion-item">
+        <div class="accordion-wrapper">
+          <div class="accordion-header"><h2>Help getting acquired</h2></div>
+          <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

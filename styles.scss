@@ -1,0 +1,123 @@
+/**
+  * Compile styles.scss outside of Webflow to generate styles.css
+  */
+
+.accordion-container {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: accordion-counter;
+
+  .accordion-item:first-child {
+    border-top: 1px solid #d9d9d9;
+  }
+}
+
+.accordion-item {
+  counter-increment: accordion-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  border-bottom: 1px solid #d9d9d9;
+  transition: 0.2s ease-in-out;
+
+  &::before {
+    content: counter(accordion-counter, decimal-leading-zero);
+    font-weight: 400;
+    padding-top: 1rem;
+    font-family: input-sans;
+    flex-shrink: 0;
+  }
+
+  a {
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: rgb(248, 94, 29);
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: underline;
+  }
+
+  // Styles for the closed state
+  &:not(.is-open) {
+    h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+
+
+    .accordion-header {
+        padding: 1rem 1rem 2.2rem;
+        cursor: pointer;
+        position: relative;
+        outline: none;
+
+        h2 {
+            position: absolute;
+            transition: 0.4s ease-out;
+            top: 19px;
+            left: 0;
+        }
+
+        &::after {
+            content: '+';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #000000;
+            transition: transform 0.2s ease-in-out;
+            font-family: neue-haas-grotesk-display;
+            font-weight: 200;
+        }
+    }
+
+  // Styles for the open state
+  &.is-open {
+    .accordion-header {
+        h2 {
+            transform: translateY(20px) translateX(-35px);
+        }
+
+        &::after {
+        content: '−';
+        transform: translateY(-50%) rotate(180deg);
+        font-size: 1.5rem;
+        }
+    }
+
+    .accordion-content {
+      max-height: 20rem; // Animation target height
+      min-height: 10rem;
+      padding: 1rem;
+
+        > * {
+            max-height: 20rem;
+        }
+    }
+  }
+}
+
+.accordion-wrapper {
+  flex-grow: 1;
+}
+
+.accordion-content {
+  padding: 0 1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.4s ease-out;
+  transform: translateY(20px) translateX(-50px);
+
+  > * {
+    max-height: 0;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+}

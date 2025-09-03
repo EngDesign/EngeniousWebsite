@@ -1,0 +1,11 @@
+{
+  "name": "engenious",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "sass styles.scss styles.css",
+    "watch": "sass --watch styles.scss:styles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
