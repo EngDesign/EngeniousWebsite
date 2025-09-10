@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="vendor/ica/style.css">
 </head>
 <body>
 
     <!-- 
-      Webflow Implementation Notes:
+      Accordion:
       - Build this structure visually in the Webflow Designer.
       - The top-level element is a Div Block with the class "accordion-container".
       - Inside, each accordion is a Div Block with the class "accordion-item".
@@ -47,9 +48,26 @@
           </div>
         </div>
       </div>
-    
+    </div>
+
+    <!--
+      Carousel Slider 
+    -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item"><h1>First slide</h1></div>
+            <div class="carousel-item"><h1>Second slide</h1></div>
+            <div class="carousel-item"><h1>Third slide</h1></div>
+            <div class="carousel-item"><h1>Fourth slide</h1></div>
+        </div>
+        <div class="carousel-controls">
+            <span class="prev"></span>
+            <span class="next"></span>
+        </div>
+        <div class="carousel-indicators"></div>
     </div>
     
     <script src="scripts.js"></script>
+    <script src="vendor/ica/script.js"></script>
 </body>
 </html>

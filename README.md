@@ -10,3 +10,20 @@ Provides styling and JS for custom Webflow components.
 
 ## Custom Components
 - Accordions
+
+## Library Components
+See `/vendor` folder
+
+### Carousel
+Dependency: https://www.cssscript.com/infinite-carousel-autoplay/
+
+
+## jsdelivr tags
+Add to Custom Code settings in Webflow
+### Head
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@main/styles.css">`
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@main/vendor/ica/style.css">`
+### Footer
+`<script defer src="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@main/scripts.js"></script>`
+`<script defer src="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@main/vendor/ica/script.js"></script>`
+
