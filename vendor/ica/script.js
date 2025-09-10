@@ -34,13 +34,13 @@ loop(true);
 
 //Carousel events
 
-next.addEventListener('click',()=>{
-    slideToNext();
-});
+// next.addEventListener('click',()=>{
+//     slideToNext();
+// });
 
-prev.addEventListener('click',()=>{
-    slideToPrev();
-});
+// prev.addEventListener('click',()=>{
+//     slideToPrev();
+// });
 
 carouselInner.addEventListener('transitionend',()=>{
     if(direction === -1){
