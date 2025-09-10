@@ -16,7 +16,7 @@ See `/vendor` folder
 
 ### Carousel
 Dependency: https://www.cssscript.com/infinite-carousel-autoplay/
-
+This has been saved as the component "CTA Banner Carousel", delete/duplicate the "Hero Heading Left" divs to manage individual slides.
 
 ## jsdelivr tags
 Add to Custom Code settings in Webflow

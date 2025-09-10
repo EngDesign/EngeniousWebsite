@@ -28,7 +28,7 @@ let time;
 
 //Init carousel
 carouselInner.style.minWidth = (totalSlides * 100) + '%';
-loadIndicators();
+// loadIndicators();
 loop(true);
 
 
@@ -71,7 +71,7 @@ carouselInner.addEventListener('transitionend',()=>{
         jump = 1;
         carouselInner.style.transition = 'all ease .5s';
     });
-    updateIndicators();
+    // updateIndicators();
 });
 
 document.querySelectorAll('.carousel-indicators span').forEach(item=>{
