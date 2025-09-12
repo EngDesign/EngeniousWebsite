@@ -100,4 +100,14 @@
   margin: 1rem 0;
 }
 
+.accordion-image-wrapper img {
+  height: 0;
+  opacity: 0;
+  transition: 0.4s ease-out;
+}
+.accordion-image-wrapper img.is-open {
+  height: auto;
+  opacity: 1;
+}
+
 /*# sourceMappingURL=styles.css.map */

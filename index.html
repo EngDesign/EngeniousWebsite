@@ -14,14 +14,16 @@
   <!-- 
       Accordion:
       - Build this structure visually in the Webflow Designer.
+      - Inline classes for all tags are assumed to be included in Webflow.
       - The top-level element is a Div Block with the class "accordion-container".
       - Inside, each accordion is a Div Block with the class "accordion-item".
       - Each "accordion-item" contains a Div Block with class "accordion-wrapper".
       - Inside the wrapper, you'll have the "accordion-header" Div Block and the "accordion-content" Div Block.
+      - The second column requires the class "accordion-image-wrapper". It should have the same number of children as there are accordion items.
     -->
   <div class="w-row" style="display: flex;">
     <div class="w-col" style="width: 50%">
-      <div class="accordion-container">
+      <div class="accordion-container" style="display:flex; flex-direction: column; height: 100%;">
         <div class="accordion-item is-open">
           <div class="accordion-wrapper">
             <div class="accordion-header">
@@ -59,8 +61,10 @@
       </div>
     </div>
 
-    <div class="w-col" style="height:500px; width: 50%; border: 1px solid black;">
-      Tall Div
+    <div class="w-col accordion-image-wrapper">
+      <img src="https://placehold.co/400x600/orange/white" class="is-open" />
+      <img src="https://placehold.co/400x600/black/white" />
+      <img src="https://placehold.co/400x600" />
     </div>
   </div>
 

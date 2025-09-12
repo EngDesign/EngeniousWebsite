@@ -14,8 +14,11 @@ Provides styling and JS for custom Webflow components.
 ## Library Components
 See `/vendor` folder
 
+### Accordion
+There should be a corresponding number of images in the right column to match the accordion-item divs. The first item and image should both have the class "is-open".
+
 ### Carousel
-Dependency: https://www.cssscript.com/infinite-carousel-autoplay/
+Open Source started from: https://www.cssscript.com/infinite-carousel-autoplay/
 This has been saved as the component "CTA Banner Carousel", delete/duplicate the "Hero Heading Left" divs to manage individual slides.
 
 ## jsdelivr tags
