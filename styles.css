@@ -103,11 +103,13 @@
 .accordion-image-wrapper img {
   height: 0;
   opacity: 0;
+  display: none;
   transition: 0.4s ease-out;
 }
 .accordion-image-wrapper img.is-open {
   height: auto;
   opacity: 1;
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */
