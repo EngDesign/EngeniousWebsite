@@ -1,25 +1,8 @@
-/** 
-This has been modified from source, there were too many opinionated styles.
-*/
-
-body{
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .carousel{
     overflow-x: hidden;
     position: relative;
     display: flex;
     justify-content: flex-start;
-}
-
-h1{
-    color: #333
 }
 
 .carousel-inner{
