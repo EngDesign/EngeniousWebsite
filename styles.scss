@@ -1,7 +1,3 @@
-/**
-  * Compile styles.scss outside of Webflow to generate styles.css
-  */
-
 .accordion-container {
   list-style: none;
   padding-left: 0;
@@ -78,6 +74,8 @@
 
   // Styles for the open state
   &.is-open {
+    flex-grow: 1;
+
     .accordion-header {
         h2 {
             transform: translateY(20px) translateX(-35px);

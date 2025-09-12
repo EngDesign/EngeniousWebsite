@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="vendor/ica/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vendor/ica/style.css">
 </head>
+
 <body>
 
-    <!-- 
+  <!-- 
       Accordion:
       - Build this structure visually in the Webflow Designer.
       - The top-level element is a Div Block with the class "accordion-container".
@@ -18,58 +19,80 @@
       - Each "accordion-item" contains a Div Block with class "accordion-wrapper".
       - Inside the wrapper, you'll have the "accordion-header" Div Block and the "accordion-content" Div Block.
     -->
-    <div class="accordion-container">
+  <div class="w-row" style="display: flex;">
+    <div class="w-col" style="width: 50%">
+      <div class="accordion-container">
         <div class="accordion-item is-open">
-            <div class="accordion-wrapper">
-                <div class="accordion-header"><h2>Rapid prototyping</h2></div>
-                <div class="accordion-content">
-                    <p>Quickly testing product-market fit with a functional prototype ventilator</p>
-                    <a href="">Learn more</a>
-                </div>
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Rapid prototyping</h2>
             </div>
-        </div>
-    
-        <div class="accordion-item">
-        <div class="accordion-wrapper">
-          <div class="accordion-header"><h2>Medical device startup help</h2></div>
-          <div class="accordion-content">
+            <div class="accordion-content">
               <p>Quickly testing product-market fit with a functional prototype ventilator</p>
               <a href="">Learn more</a>
+            </div>
           </div>
         </div>
-      </div>
-    
+
         <div class="accordion-item">
-        <div class="accordion-wrapper">
-          <div class="accordion-header"><h2>Help getting acquired</h2></div>
-          <div class="accordion-content">
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Medical device startup help</h2>
+            </div>
+            <div class="accordion-content">
               <p>Quickly testing product-market fit with a functional prototype ventilator</p>
               <a href="">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Help getting acquired</h2>
+            </div>
+            <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--
+    <div class="w-col" style="height:500px; width: 50%; border: 1px solid black;">
+      Tall Div
+    </div>
+  </div>
+
+  <!--
       Carousel Slider 
     -->
-    <div class="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item"><h1>First slide</h1></div>
-            <div class="carousel-item"><h1>Second slide</h1></div>
-            <div class="carousel-item"><h1>Third slide</h1></div>
-            <div class="carousel-item"><h1>Fourth slide</h1></div>
-        </div>
-        <!--
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <h1>First slide</h1>
+      </div>
+      <div class="carousel-item">
+        <h1>Second slide</h1>
+      </div>
+      <div class="carousel-item">
+        <h1>Third slide</h1>
+      </div>
+      <div class="carousel-item">
+        <h1>Fourth slide</h1>
+      </div>
+    </div>
+    <!--
         <div class="carousel-controls">
             <span class="prev"></span>
             <span class="next"></span>
         </div>
         <div class="carousel-indicators"></div>
         -->
-    </div>
-    
-    <script src="scripts.js"></script>
-    <script src="vendor/ica/script.js"></script>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script src="vendor/ica/script.js"></script>
 </body>
+
 </html>
