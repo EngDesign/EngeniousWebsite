@@ -33,7 +33,6 @@
 .accordion-item.is-open .accordion-content {
   max-height: 20rem;
   min-height: 10rem;
-  padding: 1rem;
 }
 .accordion-item.is-open .accordion-content > * {
   max-height: 20rem;
@@ -61,6 +60,18 @@
   transition: transform 0.2s ease-in-out;
   font-family: neue-haas-grotesk-display;
   font-weight: 200;
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.4s ease-out;
+}
+.accordion-content > * {
+  max-height: 0;
+}
+.accordion-content p {
+  margin: 1rem 0;
 }
 
 .accordion-container {
@@ -107,6 +118,13 @@
   font-family: neue-haas-grotesk-display;
   font-weight: 200;
 }
+.accordion-container .accordion-item .accordion-content {
+  padding: 0 1rem;
+  transform: translateY(20px) translateX(-50px);
+}
+.accordion-container .accordion-item.is-open .accordion-content {
+  padding: 1rem;
+}
 .accordion-container-simple {
   list-style: none;
   padding-left: none;
@@ -117,20 +135,6 @@
 
 .accordion-wrapper {
   flex-grow: 1;
-}
-
-.accordion-content {
-  padding: 0 1rem;
-  overflow: hidden;
-  max-height: 0;
-  transition: 0.4s ease-out;
-  transform: translateY(20px) translateX(-50px);
-}
-.accordion-content > * {
-  max-height: 0;
-}
-.accordion-content p {
-  margin: 1rem 0;
 }
 
 .accordion-image-wrapper img {
