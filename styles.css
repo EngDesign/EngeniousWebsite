@@ -33,6 +33,7 @@
 .accordion-item.is-open .accordion-content {
   max-height: 20rem;
   min-height: 10rem;
+  opacity: 1;
 }
 .accordion-item.is-open .accordion-content > * {
   max-height: 20rem;
@@ -66,6 +67,7 @@
   overflow: hidden;
   max-height: 0;
   transition: 0.4s ease-out;
+  opacity: 0;
 }
 .accordion-content > * {
   max-height: 0;
