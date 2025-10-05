@@ -23,7 +23,10 @@
   flex-grow: 1;
 }
 .accordion-item.is-open .accordion-header h2 {
-  transform: translateY(20px) translateX(-35px);
+  transform: translateY(20px) translateX(-53px);
+}
+.accordion-item.is-open .accordion-header h2::after {
+  content: "-";
 }
 .accordion-item.is-open .accordion-header::after {
   content: "−";
@@ -34,33 +37,10 @@
   max-height: 20rem;
   min-height: 10rem;
   opacity: 1;
+  padding: 1rem;
 }
 .accordion-item.is-open .accordion-content > * {
   max-height: 20rem;
-}
-
-.accordion-header {
-  cursor: pointer;
-  position: relative;
-  outline: none;
-}
-.accordion-header h2 {
-  position: absolute;
-  transition: 0.4s ease-out;
-  top: 19px;
-  left: 0;
-}
-.accordion-header::after {
-  content: "+";
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2em;
-  color: #000000;
-  transition: transform 0.2s ease-in-out;
-  font-family: neue-haas-grotesk-display;
-  font-weight: 200;
 }
 
 .accordion-content {
@@ -97,15 +77,15 @@
   border-top: 1px solid #d9d9d9;
 }
 .accordion-container .accordion-item .accordion-header {
-  padding: 1rem 1rem 2.2rem;
+  padding: 1rem;
   cursor: pointer;
   position: relative;
   outline: none;
 }
 .accordion-container .accordion-item .accordion-header h2 {
-  position: absolute;
+  position: relative;
   transition: 0.4s ease-out;
-  top: 19px;
+  top: 3px;
   left: 0;
 }
 .accordion-container .accordion-item .accordion-header::after {
@@ -124,9 +104,6 @@
   padding: 0 1rem;
   transform: translateY(20px) translateX(-50px);
 }
-.accordion-container .accordion-item.is-open .accordion-content {
-  padding: 1rem;
-}
 .accordion-container-simple {
   list-style: none;
   padding-left: none;
@@ -134,18 +111,30 @@
 .accordion-container-simple .accordion-item {
   border-bottom: 1px solid #303030;
 }
+@media screen and (min-width: 768px) {
+  .accordion-container {
+    height: 60vh;
+  }
+}
 
 .accordion-wrapper {
   flex-grow: 1;
 }
 
+.accordion-image-wrapper {
+  overflow: hidden;
+  height: 60vh;
+}
 .accordion-image-wrapper img {
-  height: 0;
+  height: 100%;
+  width: calc(100% - 20px);
   opacity: 0;
   transition: 0.4s ease-out;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
 }
 .accordion-image-wrapper img.is-open {
-  height: auto;
   opacity: 1;
 }
 
