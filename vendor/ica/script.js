@@ -19,13 +19,13 @@ class Carousel {
     
     wrapFirstWords() {
         this.slides.forEach(slide => {
-            const textElements = slide.querySelectorAll('h1, h2, h3, p');
-            textElements.forEach(el => {
-                const text = el.textContent.trim();
+            const firstTextElement = slide.querySelector('h1, h2, h3, p');
+            if (firstTextElement) {
+                const text = firstTextElement.textContent.trim();
                 const firstWord = text.split(' ')[0];
                 const restText = text.substring(firstWord.length);
-                el.innerHTML = `<span class="first-word">${firstWord}</span>${restText}`;
-            });
+                firstTextElement.innerHTML = `<span class="first-word">${firstWord}</span>${restText}`;
+            }
         });
     }
     
