@@ -19,15 +19,25 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity .8s ease;
+    height: fit-content;
 }
 
 .carousel-item.active{
     opacity: 1;
 }
 
-.carousel-item h1{
-    opacity: .5;
+.carousel-item .first-word {
+    transition: opacity .1s ease, transform 1s ease;
+    transform: translateY(-1.5rem);
+    display: inline-block;
+    opacity: 0;
+}
+
+.carousel-item.active .first-word{
+    transition: opacity .5s ease, transform .6s ease;
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .carousel-controls .prev{

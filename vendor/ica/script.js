@@ -11,9 +11,22 @@ class Carousel {
     }
     
     init() {
+        this.wrapFirstWords();
         this.slides[0].classList.add('active');
         this.bindEvents();
         this.loop(true);
+    }
+    
+    wrapFirstWords() {
+        this.slides.forEach(slide => {
+            const textElements = slide.querySelectorAll('h1, h2, h3, p');
+            textElements.forEach(el => {
+                const text = el.textContent.trim();
+                const firstWord = text.split(' ')[0];
+                const restText = text.substring(firstWord.length);
+                el.innerHTML = `<span class="first-word">${firstWord}</span>${restText}`;
+            });
+        });
     }
     
     bindEvents() {
