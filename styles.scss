@@ -1,68 +1,6 @@
 $accordionHeight: 60vh;
 $minWidth: 768px; 
 
-.accordion-item {
-  display: flex;
-  align-items: flex-start;
-
-  transition: 0.2s ease-in-out;
-
-  a {
-    margin-top: 12px;
-    margin-bottom: 6px;
-    color: rgb(248, 94, 29);
-    font-size: 14px;
-    line-height: 16px;
-    text-decoration: underline;
-  }
-
-  h3 {}
-
-  // Styles for the closed state
-  &:not(.is-open) {
-    h2 {
-      margin: 0;
-      padding: 0;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1;
-    }
-  }
-
-
-  // Styles for the open state
-  &.is-open {
-    flex-grow: 1;
-
-    .accordion-header {
-      h2 {
-        transform: translateY(20px) translateX(-53px);
-
-        &::after {
-          content: '-';
-        }
-      }
-
-      &::after {
-        content: '−';
-        transform: translateY(-50%) rotate(180deg);
-        font-size: 1.5rem;
-      }
-    }
-
-    .accordion-content {
-      max-height: 20rem; // Animation target height
-      min-height: 10rem;
-      opacity: 1;
-      padding: 1rem;
-
-      >* {
-        max-height: 20rem;
-      }
-    }
-  }
-}
-
 .accordion-content {
   overflow: hidden;
   max-height: 0;
@@ -87,6 +25,32 @@ $minWidth: 768px;
     counter-increment: accordion-counter;
     gap: 1em;
     border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    align-items: flex-start;
+
+    transition: 0.2s ease-in-out;
+
+    a {
+      margin-top: 12px;
+      margin-bottom: 6px;
+      color: rgb(248, 94, 29);
+      font-size: 14px;
+      line-height: 16px;
+      text-decoration: underline;
+    }
+
+    h3 {}
+
+    // Styles for the closed state
+    &:not(.is-open) {
+      h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+      }
+    }
 
     &::before {
       content: counter(accordion-counter, decimal-leading-zero);
@@ -130,6 +94,38 @@ $minWidth: 768px;
     .accordion-content {
       padding: 0 1rem;
       transform: translateY(20px) translateX(-50px);
+    }
+
+    // Styles for the open state
+    &.is-open {
+      flex-grow: 1;
+
+      .accordion-header {
+        h2 {
+          transform: translateY(20px) translateX(-53px);
+
+          &::after {
+            content: '-';
+          }
+        }
+
+        &::after {
+          content: '−';
+          transform: translateY(-50%) rotate(180deg);
+          font-size: 1.5rem;
+        }
+      }
+
+      .accordion-content {
+        max-height: 20rem; // Animation target height
+        min-height: 10rem;
+        opacity: 1;
+        padding: 1rem;
+
+        >* {
+          max-height: 20rem;
+        }
+      }
     }
   }
 

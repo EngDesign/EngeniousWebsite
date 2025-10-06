@@ -1,48 +1,4 @@
 @charset "UTF-8";
-.accordion-item {
-  display: flex;
-  align-items: flex-start;
-  transition: 0.2s ease-in-out;
-}
-.accordion-item a {
-  margin-top: 12px;
-  margin-bottom: 6px;
-  color: rgb(248, 94, 29);
-  font-size: 14px;
-  line-height: 16px;
-  text-decoration: underline;
-}
-.accordion-item:not(.is-open) h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1;
-}
-.accordion-item.is-open {
-  flex-grow: 1;
-}
-.accordion-item.is-open .accordion-header h2 {
-  transform: translateY(20px) translateX(-53px);
-}
-.accordion-item.is-open .accordion-header h2::after {
-  content: "-";
-}
-.accordion-item.is-open .accordion-header::after {
-  content: "−";
-  transform: translateY(-50%) rotate(180deg);
-  font-size: 1.5rem;
-}
-.accordion-item.is-open .accordion-content {
-  max-height: 20rem;
-  min-height: 10rem;
-  opacity: 1;
-  padding: 1rem;
-}
-.accordion-item.is-open .accordion-content > * {
-  max-height: 20rem;
-}
-
 .accordion-content {
   overflow: hidden;
   max-height: 0;
@@ -65,6 +21,24 @@
   counter-increment: accordion-counter;
   gap: 1em;
   border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  align-items: flex-start;
+  transition: 0.2s ease-in-out;
+}
+.accordion-container .accordion-item a {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: rgb(248, 94, 29);
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: underline;
+}
+.accordion-container .accordion-item:not(.is-open) h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
 }
 .accordion-container .accordion-item::before {
   content: counter(accordion-counter, decimal-leading-zero);
@@ -103,6 +77,29 @@
 .accordion-container .accordion-item .accordion-content {
   padding: 0 1rem;
   transform: translateY(20px) translateX(-50px);
+}
+.accordion-container .accordion-item.is-open {
+  flex-grow: 1;
+}
+.accordion-container .accordion-item.is-open .accordion-header h2 {
+  transform: translateY(20px) translateX(-53px);
+}
+.accordion-container .accordion-item.is-open .accordion-header h2::after {
+  content: "-";
+}
+.accordion-container .accordion-item.is-open .accordion-header::after {
+  content: "−";
+  transform: translateY(-50%) rotate(180deg);
+  font-size: 1.5rem;
+}
+.accordion-container .accordion-item.is-open .accordion-content {
+  max-height: 20rem;
+  min-height: 10rem;
+  opacity: 1;
+  padding: 1rem;
+}
+.accordion-container .accordion-item.is-open .accordion-content > * {
+  max-height: 20rem;
 }
 .accordion-container-simple {
   list-style: none;
