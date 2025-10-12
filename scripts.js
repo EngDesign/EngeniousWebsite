@@ -34,6 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateVisuals() {
     checkboxes.forEach(cb => {
       cb.checked = checkedState[cb.id] || false;
+      const wrapper = cb.previousElementSibling;
+      if (wrapper && wrapper.classList.contains('w-checkbox-input')) {
+        if (checkedState[cb.id]) {
+          wrapper.classList.add('w--redirected-checked');
+        } else {
+          wrapper.classList.remove('w--redirected-checked');
+        }
+      }
     });
     
     if (checkedState.All) {
