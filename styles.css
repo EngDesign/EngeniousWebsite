@@ -135,7 +135,6 @@
   opacity: 1;
 }
 
-/*# sourceMappingURL=styles.css.map */
 /* Team Modal */
 .team-modal {
   position: fixed;
@@ -167,6 +166,9 @@
   overflow-y: auto;
   position: relative;
 }
+.team-modal-dialog .team-modal-content {
+  display: block !important;
+}
 
 .team-modal-close {
   position: absolute;
@@ -181,3 +183,5 @@
 .team-collection-item {
   cursor: pointer;
 }
+
+/*# sourceMappingURL=styles.css.map */

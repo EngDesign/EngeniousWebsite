@@ -20,7 +20,7 @@
       - Each "accordion-item" contains a Div Block with class "accordion-wrapper".
       - Inside the wrapper, you'll have the "accordion-header" Div Block and the "accordion-content" Div Block.
       - The second column requires the class "accordion-image-wrapper". It should have the same number of children as there are accordion items.
-    -->
+    
   <div class="w-row" style="display: flex;">
     <div class="w-col" style="width: 50%">
       <div class="accordion-container" style="display:flex; flex-direction: column; height: 100%;">
@@ -71,7 +71,7 @@
   <!--
     Simple Accordion:
     - Build this structure
-  -->
+
     <div class="accordion-container-simple" style="display:flex; flex-direction: column; height: 100%;">
       <div class="accordion-item is-open">
         <div class="accordion-wrapper">
@@ -121,7 +121,7 @@
     </div>
   <!--
       Carousel Slider 
-    -->
+    
   <div class="carousel">
     <div class="carousel-inner">
       <div class="carousel-item">
@@ -145,9 +145,93 @@
             <span class="next"></span>
         </div>
         <div class="carousel-indicators"></div>
-        -->
+        
   </div>
-
+  <!-- 
+    Our Team
+    - Filtering by role
+    - Open modal on click
+    - Checvkboxes are styled by WebFlow
+  -->
+  <div class="team-tabs-wrapper">
+    <div class="w-form">
+      <form id="email-form" name="email-form" data-name="Email Form" method="get" class="team-checkbox-form"
+        data-wf-page-id="68ead41ccf9662176586963a" data-wf-element-id="8b3dab66-e41b-88d7-9255-ebdb04aae9f8"
+        data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e" aria-label="Email Form"><label
+          class="w-checkbox team-checkbox-field">
+          <div class="w-checkbox-input w-checkbox-input--inputType-custom team-checkbox w--redirected-checked"></div>
+          <input type="checkbox" name="All" id="All" data-name="All" style="opacity:0;position:absolute;z-index:-1"
+            checked=""><span class="w-form-label" for="All">All</span>
+        </label><label class="w-checkbox team-checkbox-field">
+          <div class="w-checkbox-input w-checkbox-input--inputType-custom team-checkbox"></div><input type="checkbox"
+            name="Leadership" id="Leadership" data-name="Leadership" style="opacity:0;position:absolute;z-index:-1"><span
+            class="w-form-label" for="Leadership">Leadership</span>
+        </label><label class="w-checkbox team-checkbox-field">
+          <div class="w-checkbox-input w-checkbox-input--inputType-custom team-checkbox"></div><input type="checkbox"
+            name="Project-Management" id="Project-Management" data-name="Project Management"
+            style="opacity:0;position:absolute;z-index:-1"><span class="w-form-label" for="Project-Management">Project
+            Management</span>
+        </label>
+        <div>
+          <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-3qhmd_response"
+              value="0.JLbp3x7eXYVdcv2X4QMs81JB8PdgoQso1-RgaJ6E8BvQaIUtPggjeil2pzrETKbVhGXSV0h5SkjR4wb28UogYKNUNSX9RJl-xXoBJG82RIZBHvet0IAhV5jKsJkgdl04yLKqmc_A8gYvDZ1h5moafW9dDrvTCoUy3FNxjGWOn9djiss-hV5u4fie_AzMYsTL_EYr0D7GeuInRslXSSFnlwK3fIVyKrWmS8-1uCgzCAvKsuarwSrtTvaZIDlT7BoRDFlncFqDbGIhpQ-Pz1BTIgI9tjeKXROKJt8S5VRwALwHPmvYPHl4gohejqsv5U0AJJcTyTgpDydsm6Y1JrtEW76luIDH0q8AmSdf-nCzWgfRU_bV_a60YTHVMclG1NLa29U542onDQuGZMpnsg4yV0vfc-xc1t6Xn2LrrJLw_5RMXUkWyD5tRvxj5evpqM6XsKK4TLxpKpreC8pxn4SRuqufDNur7woas3zLqXXKlEE9m1-9_PGVS37zQ7XRe9s_AWTjVFwYp7LtTj5qAFGYtFx3x7J6KJtt56ix3LZCbBv0eguie2hZCzAputlxWSbxdR0ojXUuEqCWU5-EgI-8HUqKYgYQLB8fJejs5q0mC1SKrDKN9wtcqSbkp_AbxGmqTMMMuLdAUwtEfNZS8rjuOyuVqjashPfbBzGnYKAJITP5jvBXmwCUM_NXJpIF2YG2woXA9cZf7UV6QwWC-tLxHwxl7LYkySmWsKwtpthStHQiGc8dtH1ScVmGvNSI44rxg7lWe2BOAKQbteF6bv19_UjaO8ICBFL2R5cwBiw__O0LMVYBO8LAu-6jgnHcJYg3QUE-W2uE3zZXyhjEcuaZbddKAv4ilOZ36-2pnA4PDOTpLqvkHUYPGo0GZXy3ck7wmD4_9vSM3OBDSyZRbWgLGlMxHzrOWTuVT_ro_7hq5nZixgb8bme5Z0jS8Hy61uDM.D9hbEYP-K29aluJaVWsZZA.eb08e31cf5a890dfeca8174b3e4a7a8aac32a63526e36aeb3f463d049c1074da">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="w-dyn-list">
+    <div role="list" class="team-collection-list w-dyn-items">
+      <div data-role="Project Management" role="listitem" class="team-collection-item w-dyn-item"><img
+          src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot.jpg"
+          loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+          srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot.jpg 736w">
+        <h2 class="heading-medium heading-team-name">Jessica Batchelor</h2>
+        <h3 class="heading-team-role">Project Management</h3>
+        <div class="team-modal-content"><img
+            src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot.jpg"
+            loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+            srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb2295084c6ff8cf155d4a_Jessica%20Batchelor%20headshot.jpg 736w">
+          <h2 class="heading-medium heading-team-name">Jessica Batchelor</h2>
+          <h3 class="heading-team-role">Project Management</h3>
+          <div class="team-modal-copy">Jessica lorem ipsum</div>
+        </div>
+      </div>
+      <div data-role="Model Shop &amp; Build" role="listitem" class="team-collection-item w-dyn-item"><img
+          src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot.jpg"
+          loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+          srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot.jpg 736w">
+        <h2 class="heading-medium heading-team-name">Sarah Batrouny</h2>
+        <h3 class="heading-team-role">Model Shop &amp; Build</h3>
+        <div class="team-modal-content"><img
+            src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot.jpg"
+            loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+            srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb225d7d54025b3c561240_Sarah%20Batouny%20headshot.jpg 736w">
+          <h2 class="heading-medium heading-team-name">Sarah Batrouny</h2>
+          <h3 class="heading-team-role">Model Shop &amp; Build</h3>
+          <div class="team-modal-copy">Sarah lorem ipsum</div>
+        </div>
+      </div>
+      <div data-role="Engineering" role="listitem" class="team-collection-item w-dyn-item"><img
+          src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot.jpg"
+          loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+          srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot.jpg 736w">
+        <h2 class="heading-medium heading-team-name">Colten Becker</h2>
+        <h3 class="heading-team-role">Engineering</h3>
+        <div class="team-modal-content"><img
+            src="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot.jpg"
+            loading="lazy" alt="" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+            srcset="https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot-p-500.jpg 500w, https://cdn.prod.website-files.com/68d0c54c9551287fadc5005d/68eb21ff7c575e35624d54d5_Colten%20Becker%20headshot.jpg 736w">
+          <h2 class="heading-medium heading-team-name">Colten Becker</h2>
+          <h3 class="heading-team-role">Engineering</h3>
+          <div class="team-modal-copy">Colten Becker is an experienced Test Engineer with a background in hardware and
+            software testing in radar technology. That experience is put to good use on our Test Team, where Colten
+            designs and executes verification and validation testing on our various projects. Colten is a Mechanical
+            Engineering graduate from Missouri S&amp;T.</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="scripts.js"></script>
   <script src="vendor/ica/script.js"></script>
 </body>

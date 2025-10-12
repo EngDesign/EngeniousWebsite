@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.checked) {
           console.log('All checked - unchecking others');
           checkboxes.forEach(cb => {
-            if (cb !== this) {
-              console.log('Unchecking:', cb.id);
-              cb.checked = false;
+            if (cb !== this && cb.checked) {
+              console.log('Clicking to uncheck:', cb.id);
+              cb.click();
             }
           });
           teamItems.forEach(item => item.style.display = 'block');
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         console.log('Other checkbox checked - unchecking All');
         const allCheckbox = document.getElementById('All');
-        if (allCheckbox) {
-          allCheckbox.checked = false;
-          console.log('All unchecked');
+        if (allCheckbox && allCheckbox.checked) {
+          console.log('Clicking to uncheck All');
+          allCheckbox.click();
         }
         
         const checkedRoles = Array.from(checkboxes)
