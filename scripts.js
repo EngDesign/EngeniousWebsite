@@ -30,22 +30,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const checkboxes = document.querySelectorAll('.team-checkbox-field input[type="checkbox"]');
   const teamItems = document.querySelectorAll('.team-collection-item');
   
+  console.log('Found checkboxes:', checkboxes.length);
+  console.log('Found team items:', teamItems.length);
+  
   checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
+    console.log('Adding listener to:', checkbox.id);
+    checkbox.addEventListener('change', function(e) {
+      console.log('Checkbox changed:', this.id, 'checked:', this.checked);
+      
       if (this.id === 'All') {
         if (this.checked) {
-          checkboxes.forEach(cb => cb !== this && (cb.checked = false));
+          console.log('All checked - unchecking others');
+          checkboxes.forEach(cb => {
+            if (cb !== this) {
+              console.log('Unchecking:', cb.id);
+              cb.checked = false;
+            }
+          });
           teamItems.forEach(item => item.style.display = 'block');
         }
       } else {
-        document.getElementById('All').checked = false;
+        console.log('Other checkbox checked - unchecking All');
+        const allCheckbox = document.getElementById('All');
+        if (allCheckbox) {
+          allCheckbox.checked = false;
+          console.log('All unchecked');
+        }
+        
         const checkedRoles = Array.from(checkboxes)
           .filter(cb => cb.checked && cb.id !== 'All')
           .map(cb => cb.id.replace('-', ' '));
         
+        console.log('Checked roles:', checkedRoles);
+        
         teamItems.forEach(item => {
           const role = item.getAttribute('data-role');
-          item.style.display = checkedRoles.length === 0 || checkedRoles.includes(role) ? 'block' : 'none';
+          const shouldShow = checkedRoles.length === 0 || checkedRoles.includes(role);
+          item.style.display = shouldShow ? 'block' : 'none';
+          console.log('Item role:', role, 'show:', shouldShow);
         });
       }
     });
