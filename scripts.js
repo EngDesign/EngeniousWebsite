@@ -29,61 +29,52 @@ document.addEventListener('DOMContentLoaded', function() {
   // Team filtering
   const checkboxes = document.querySelectorAll('.team-checkbox-field input[type="checkbox"]');
   const teamItems = document.querySelectorAll('.team-collection-item');
-  
-  console.log('Found checkboxes:', checkboxes.length);
-  console.log('Found team items:', teamItems.length);
+  let isUpdating = false;
   
   checkboxes.forEach(checkbox => {
-    console.log('Adding listener to:', checkbox.id);
     checkbox.addEventListener('change', function(e) {
+      if (isUpdating) return;
+      
       console.log('Checkbox changed:', this.id, 'checked:', this.checked);
+      isUpdating = true;
       
       if (this.id === 'All') {
-        if (!this.checked) {
-          console.log('Preventing All from being unchecked');
-          e.preventDefault();
-          this.checked = true;
-          return;
-        }
-        console.log('All checked - unchecking others');
-        setTimeout(() => {
+        if (this.checked) {
+          console.log('All checked - unchecking others');
           checkboxes.forEach(cb => {
-            if (cb !== this && cb.checked) {
-              console.log('Clicking to uncheck:', cb.id);
-              cb.click();
-            }
+            if (cb !== this) cb.checked = false;
           });
-        }, 0);
-        teamItems.forEach(item => item.style.display = 'block');
+          teamItems.forEach(item => item.style.display = 'block');
+        } else {
+          console.log('Preventing All from being unchecked');
+          this.checked = true;
+        }
       } else {
         console.log('Other checkbox changed');
         const allCheckbox = document.getElementById('All');
-        if (allCheckbox && allCheckbox.checked) {
-          console.log('Clicking to uncheck All');
-          setTimeout(() => allCheckbox.click(), 0);
-        }
+        if (allCheckbox) allCheckbox.checked = false;
         
-        setTimeout(() => {
-          const checkedRoles = Array.from(checkboxes)
-            .filter(cb => cb.checked && cb.id !== 'All')
-            .map(cb => cb.id.replace('-', ' '));
-          
-          console.log('Checked roles:', checkedRoles);
-          
-          if (checkedRoles.length === 0) {
-            console.log('No roles checked - checking All');
-            allCheckbox.click();
-            return;
-          }
-          
+        const checkedRoles = Array.from(checkboxes)
+          .filter(cb => cb.checked && cb.id !== 'All')
+          .map(cb => cb.id.replace('-', ' '));
+        
+        console.log('Checked roles:', checkedRoles);
+        
+        if (checkedRoles.length === 0) {
+          console.log('No roles checked - checking All');
+          allCheckbox.checked = true;
+          teamItems.forEach(item => item.style.display = 'block');
+        } else {
           teamItems.forEach(item => {
             const role = item.getAttribute('data-role');
             const shouldShow = checkedRoles.includes(role);
             item.style.display = shouldShow ? 'block' : 'none';
             console.log('Item role:', role, 'show:', shouldShow);
           });
-        }, 0);
+        }
       }
+      
+      isUpdating = false;
     });
   });
 
