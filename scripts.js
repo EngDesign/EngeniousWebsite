@@ -25,4 +25,69 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Team filtering
+  const checkboxes = document.querySelectorAll('.team-checkbox-field input[type="checkbox"]');
+  const teamItems = document.querySelectorAll('.team-collection-item');
+  
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      if (this.id === 'All') {
+        if (this.checked) {
+          checkboxes.forEach(cb => cb !== this && (cb.checked = false));
+          teamItems.forEach(item => item.style.display = 'block');
+        }
+      } else {
+        document.getElementById('All').checked = false;
+        const checkedRoles = Array.from(checkboxes)
+          .filter(cb => cb.checked && cb.id !== 'All')
+          .map(cb => cb.id.replace('-', ' '));
+        
+        teamItems.forEach(item => {
+          const role = item.getAttribute('data-role');
+          item.style.display = checkedRoles.length === 0 || checkedRoles.includes(role) ? 'block' : 'none';
+        });
+      }
+    });
+  });
+
+  // Team modal
+  let modal = null;
+  
+  teamItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const modalContent = this.querySelector('.team-modal-content').cloneNode(true);
+      
+      modal = document.createElement('div');
+      modal.className = 'team-modal';
+      modal.innerHTML = `
+        <div class="team-modal-backdrop">
+          <div class="team-modal-dialog">
+            <button class="team-modal-close">×</button>
+            ${modalContent.outerHTML}
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      document.body.style.overflow = 'hidden';
+      
+      modal.querySelector('.team-modal-close').addEventListener('click', closeModal);
+      modal.querySelector('.team-modal-backdrop').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+      });
+    });
+  });
+  
+  function closeModal() {
+    if (modal) {
+      document.body.removeChild(modal);
+      document.body.style.overflow = '';
+      modal = null;
+    }
+  }
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal) closeModal();
+  });
 });

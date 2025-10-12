@@ -21,6 +21,9 @@ There should be a corresponding number of images in the right column to match th
 Open Source started from: https://www.cssscript.com/infinite-carousel-autoplay/
 This has been saved as the component "CTA Banner Carousel", delete/duplicate the "Hero Heading Left" divs to manage individual slides.
 
+### Our Team
+Filtering + Modal functionality
+
 ## jsdelivr tags
 Add to Custom Code settings in Webflow
 ### Head
