@@ -39,36 +39,50 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Checkbox changed:', this.id, 'checked:', this.checked);
       
       if (this.id === 'All') {
-        if (this.checked) {
-          console.log('All checked - unchecking others');
+        if (!this.checked) {
+          console.log('Preventing All from being unchecked');
+          e.preventDefault();
+          this.checked = true;
+          return;
+        }
+        console.log('All checked - unchecking others');
+        setTimeout(() => {
           checkboxes.forEach(cb => {
             if (cb !== this && cb.checked) {
               console.log('Clicking to uncheck:', cb.id);
               cb.click();
             }
           });
-          teamItems.forEach(item => item.style.display = 'block');
-        }
+        }, 0);
+        teamItems.forEach(item => item.style.display = 'block');
       } else {
-        console.log('Other checkbox checked - unchecking All');
+        console.log('Other checkbox changed');
         const allCheckbox = document.getElementById('All');
         if (allCheckbox && allCheckbox.checked) {
           console.log('Clicking to uncheck All');
-          allCheckbox.click();
+          setTimeout(() => allCheckbox.click(), 0);
         }
         
-        const checkedRoles = Array.from(checkboxes)
-          .filter(cb => cb.checked && cb.id !== 'All')
-          .map(cb => cb.id.replace('-', ' '));
-        
-        console.log('Checked roles:', checkedRoles);
-        
-        teamItems.forEach(item => {
-          const role = item.getAttribute('data-role');
-          const shouldShow = checkedRoles.length === 0 || checkedRoles.includes(role);
-          item.style.display = shouldShow ? 'block' : 'none';
-          console.log('Item role:', role, 'show:', shouldShow);
-        });
+        setTimeout(() => {
+          const checkedRoles = Array.from(checkboxes)
+            .filter(cb => cb.checked && cb.id !== 'All')
+            .map(cb => cb.id.replace('-', ' '));
+          
+          console.log('Checked roles:', checkedRoles);
+          
+          if (checkedRoles.length === 0) {
+            console.log('No roles checked - checking All');
+            allCheckbox.click();
+            return;
+          }
+          
+          teamItems.forEach(item => {
+            const role = item.getAttribute('data-role');
+            const shouldShow = checkedRoles.includes(role);
+            item.style.display = shouldShow ? 'block' : 'none';
+            console.log('Item role:', role, 'show:', shouldShow);
+          });
+        }, 0);
       }
     });
   });
