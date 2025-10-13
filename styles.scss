@@ -190,14 +190,15 @@ $minWidth: 768px;
 
 .team-modal-dialog {
   background: white;
-  max-width: 412px;
   width: 90%;
+  max-width: 412px;
   height: 100%;
   max-height: 100%;
   overflow-y: auto;
   position: relative;
   transform: translateX(100%);
   transition: transform 0.3s ease-out;
+  padding: 82px 35px 35px;
 
   &.slide-in {
     transform: translateX(0);
@@ -210,11 +211,14 @@ $minWidth: 768px;
 
 .team-modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 35px;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-family: neue-haas-grotesk-display;
+  font-size: 27px;
+  line-height: 100%;
+  padding: 10px;
   cursor: pointer;
 }
 
