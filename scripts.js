@@ -103,6 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.appendChild(modal);
       document.body.style.overflow = 'hidden';
       
+      setTimeout(() => {
+        modal.querySelector('.team-modal-dialog').classList.add('slide-in');
+      }, 10);
+      
       modal.querySelector('.team-modal-close').addEventListener('click', closeModal);
       modal.querySelector('.team-modal-backdrop').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
@@ -112,9 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function closeModal() {
     if (modal) {
-      document.body.removeChild(modal);
-      document.body.style.overflow = '';
-      modal = null;
+      modal.querySelector('.team-modal-dialog').classList.remove('slide-in');
+      setTimeout(() => {
+        document.body.removeChild(modal);
+        document.body.style.overflow = '';
+        modal = null;
+      }, 300);
     }
   }
   
