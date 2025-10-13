@@ -183,8 +183,9 @@
   background: none;
   border: none;
   font-family: neue-haas-grotesk-display;
-  font-size: 27px;
+  font-size: 57px;
   line-height: 100%;
+  font-weight: 200;
   padding: 10px;
   cursor: pointer;
 }
