@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .accordion-content {
   overflow: hidden;
   max-height: 0;
@@ -63,16 +62,18 @@
   left: 0;
 }
 .accordion-container .accordion-item .accordion-header::after {
-  content: "+";
+  content: "";
   position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2em;
-  color: #000000;
+  width: 25px;
+  height: 24px;
+  background-image: url("./icons/add_icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   transition: transform 0.2s ease-in-out;
-  font-family: neue-haas-grotesk-display;
-  font-weight: 200;
 }
 .accordion-container .accordion-item .accordion-content {
   padding: 0 1rem;
@@ -81,22 +82,23 @@
 .accordion-container .accordion-item.is-open {
   flex-grow: 1;
 }
+.accordion-container .accordion-item.is-open .accordion-header {
+  padding-bottom: 0;
+}
 .accordion-container .accordion-item.is-open .accordion-header h2 {
   transform: translateY(20px) translateX(-53px);
 }
-.accordion-container .accordion-item.is-open .accordion-header h2::after {
-  content: "-";
-}
 .accordion-container .accordion-item.is-open .accordion-header::after {
-  content: "−";
-  transform: translateY(-50%) rotate(180deg);
-  font-size: 1.5rem;
+  background-image: url("./icons/minus_icon.svg");
+  transform: translateY(-50%);
 }
 .accordion-container .accordion-item.is-open .accordion-content {
   max-height: 20rem;
   min-height: 10rem;
   opacity: 1;
-  padding: 1rem;
+}
+.accordion-container .accordion-item.is-open .accordion-content .p:first-child {
+  margin-top: 10px;
 }
 .accordion-container .accordion-item.is-open .accordion-content > * {
   max-height: 20rem;
