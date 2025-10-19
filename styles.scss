@@ -1,5 +1,7 @@
 $accordionHeight: 60vh;
-$minWidth: 768px; 
+$black: #1e1e1e;
+$minWidth: 768px;
+$white: #F5F5F5;
 
 .accordion-content {
   overflow: hidden;
@@ -235,4 +237,12 @@ $minWidth: 768px;
 
 .team-collection-item {
   cursor: pointer;
+}
+
+/* Team Checkbox Styles*/
+.team-checkbox-form {
+  input[type="checkbox"]:checked + label {
+    background-color: $black;
+    color: $white;
+  }
 }
