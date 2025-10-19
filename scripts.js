@@ -35,11 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
     checkboxes.forEach(cb => {
       cb.checked = checkedState[cb.id] || false;
       const wrapper = cb.previousElementSibling;
+      const label = cb.closest('.team-checkbox-field');
+      
       if (wrapper && wrapper.classList.contains('w-checkbox-input')) {
         if (checkedState[cb.id]) {
           wrapper.classList.add('w--redirected-checked');
+          label.classList.add('active');
         } else {
           wrapper.classList.remove('w--redirected-checked');
+          label.classList.remove('active');
         }
       }
     });

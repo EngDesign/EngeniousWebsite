@@ -190,7 +190,7 @@
 }
 
 /* Team Checkbox Styles*/
-.team-checkbox-form input[type=checkbox]:checked + label {
+.team-checkbox-form .team-checkbox-field.active {
   background-color: #1e1e1e;
   color: #F5F5F5;
 }

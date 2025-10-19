@@ -241,7 +241,7 @@ $white: #F5F5F5;
 
 /* Team Checkbox Styles*/
 .team-checkbox-form {
-  input[type="checkbox"]:checked + label {
+  .team-checkbox-field.active {
     background-color: $black;
     color: $white;
   }
