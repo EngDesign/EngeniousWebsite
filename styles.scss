@@ -10,10 +10,6 @@ $minWidth: 768px;
   >* {
     max-height: 0;
   }
-
-  p {
-    margin: 1rem 0;
-  }
 }
 
 .accordion-container {
@@ -58,7 +54,7 @@ $minWidth: 768px;
     }
 
     .accordion-header {
-      padding: 1rem 1rem 0;
+      padding: 1rem;
       cursor: pointer;
       position: relative;
       outline: none;
@@ -104,13 +100,9 @@ $minWidth: 768px;
       }
 
       .accordion-content {
-        max-height: 20rem; // Animation target height
-        min-height: 10rem;
+        max-height: 20rem;
         opacity: 1;
-
-        .p:first-child {
-          margin-top: 10px;
-        }
+        padding: 1rem;
 
         >* {
           max-height: 20rem;
@@ -124,7 +116,12 @@ $minWidth: 768px;
 
     .accordion-item {
       border-bottom: 1px solid #303030;
-
+      
+      .accordion-content {
+        p {
+          margin: 0 0 1rem;
+        }
+      }
     }
   }
 
@@ -136,6 +133,12 @@ $minWidth: 768px;
         padding-top: 1rem;
         font-family: input-sans;
         flex-shrink: 0;
+      }
+
+      .accordion-content {
+        p {
+          margin: 1rem 0;
+        }
       }
 
       &.is-open {
