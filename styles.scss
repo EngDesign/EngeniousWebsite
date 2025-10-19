@@ -58,7 +58,7 @@ $minWidth: 768px;
     }
 
     .accordion-header {
-      padding: 1rem;
+      padding: 1rem 1rem 0;
       cursor: pointer;
       position: relative;
       outline: none;
@@ -88,16 +88,11 @@ $minWidth: 768px;
 
     .accordion-content {
       padding: 0 1rem;
-      transform: translateY(20px) translateX(-50px);
     }
 
     // Styles for the open state
     &.is-open {
-      flex-grow: 1;
-
       .accordion-header {
-        padding-bottom: 0;
-
         h2 {
           transform: translateY(20px) translateX(-53px);
         }
@@ -141,6 +136,12 @@ $minWidth: 768px;
         padding-top: 1rem;
         font-family: input-sans;
         flex-shrink: 0;
+      }
+
+      &.is-open {
+        .accordion-content {
+          transform: translateY(20px) translateX(-50px);
+        }
       }
     }
   }
