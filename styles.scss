@@ -244,5 +244,9 @@ $white: #F5F5F5;
   .team-checkbox-field.active {
     background-color: $black;
     color: $white;
+    
+    &::before {
+      content: '✓';
+    }
   }
 }

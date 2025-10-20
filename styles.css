@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .accordion-content {
   overflow: hidden;
   max-height: 0;
@@ -193,6 +194,9 @@
 .team-checkbox-form .team-checkbox-field.active {
   background-color: #1e1e1e;
   color: #F5F5F5;
+}
+.team-checkbox-form .team-checkbox-field.active::before {
+  content: "✓";
 }
 
 /*# sourceMappingURL=styles.css.map */
