@@ -242,11 +242,14 @@ $white: #F5F5F5;
 /* Team Checkbox Styles*/
 .team-checkbox-form {
   .team-checkbox-field.active {
+    padding-left: 20px;
     background-color: $black;
     color: $white;
     
     &::before {
       content: '✓';
+      position: absolute;
+      left: 5px;
     }
   }
 }
