@@ -27,61 +27,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Team filtering
-  const checkboxes = document.querySelectorAll('.team-checkbox-field input[type="checkbox"]');
+  const radios = document.querySelectorAll('.team-checkbox-field input[type="radio"]');
   const teamItems = document.querySelectorAll('.team-collection-item');
-  let checkedState = { All: true };
+  
+  // Set All as default
+  const allRadio = document.getElementById('All-2');
+  if (allRadio) allRadio.checked = true;
   
   function updateVisuals() {
-    checkboxes.forEach(cb => {
-      cb.checked = checkedState[cb.id] || false;
-      const wrapper = cb.previousElementSibling;
-      const label = cb.closest('.team-checkbox-field');
+    radios.forEach(radio => {
+      const label = radio.closest('.team-checkbox-field');
       
-      if (wrapper && wrapper.classList.contains('w-checkbox-input')) {
-        if (checkedState[cb.id]) {
-          wrapper.classList.add('w--redirected-checked');
-          label.classList.add('active');
-        } else {
-          wrapper.classList.remove('w--redirected-checked');
-          label.classList.remove('active');
-        }
+      if (radio.checked) {
+        label.classList.add('active');
+      } else {
+        label.classList.remove('active');
       }
     });
     
-    if (checkedState.All) {
+    const checkedRadio = document.querySelector('.team-checkbox-field input[type="radio"]:checked');
+    
+    if (!checkedRadio || checkedRadio.id === 'All-2') {
       teamItems.forEach(item => item.style.display = 'block');
     } else {
-      const activeRoles = Object.keys(checkedState).filter(key => key !== 'All' && checkedState[key]).map(key => key.replace('-', ' '));
+      const selectedRole = checkedRadio.value;
       teamItems.forEach(item => {
         const role = item.getAttribute('data-role');
-        item.style.display = activeRoles.includes(role) ? 'block' : 'none';
+        item.style.display = role === selectedRole ? 'block' : 'none';
       });
     }
   }
   
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      if (this.id === 'All') {
-        if (!checkedState.All) {
-          checkedState = { All: true };
-        }
-      } else {
-        if (checkedState[this.id]) {
-          delete checkedState[this.id];
-        } else {
-          delete checkedState.All;
-          checkedState[this.id] = true;
-        }
-        
-        if (Object.keys(checkedState).length === 0) {
-          checkedState = { All: true };
-        }
-      }
-      
-      updateVisuals();
-    });
+  radios.forEach(radio => {
+    radio.addEventListener('change', updateVisuals);
   });
   
   updateVisuals();
