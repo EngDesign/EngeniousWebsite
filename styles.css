@@ -101,8 +101,11 @@
 .accordion-container-images .accordion-item .accordion-content p {
   margin: 1rem 0;
 }
+.accordion-container-images .accordion-item.is-open {
+  flex-grow: 1;
+}
 .accordion-container-images .accordion-item.is-open .accordion-content {
-  transform: translateY(20px) translateX(-50px);
+  transform: translateX(-50px);
 }
 @media screen and (min-width: 768px) {
   .accordion-container {

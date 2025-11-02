@@ -144,8 +144,10 @@ $white: #F5F5F5;
       }
 
       &.is-open {
+        flex-grow: 1;
+
         .accordion-content {
-          transform: translateY(20px) translateX(-50px);
+          transform: translateX(-50px);
         }
       }
     }
