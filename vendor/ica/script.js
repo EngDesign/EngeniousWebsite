@@ -84,6 +84,7 @@ class testimonialCarousel{
         this.slides.forEach((slide, index) => {
             if (index !== 0) slide.classList.add('prev');
         });
+        this.updateHeight();
         this.bindEvents();
     }
     
@@ -95,12 +96,18 @@ class testimonialCarousel{
         rightControl?.addEventListener('click', () => this.slideToNext());
     }
     
+    updateHeight() {
+        const activeSlide = this.slides[this.activeSlide];
+        this.carousel.style.height = activeSlide.offsetHeight + 'px';
+    }
+
     slideToNext() {
         this.slides[this.activeSlide].classList.remove('active');
         this.slides[this.activeSlide].classList.add('prev');
         this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
         this.slides[this.activeSlide].classList.remove('prev');
         this.slides[this.activeSlide].classList.add('active');
+        this.updateHeight();
     }
 
     slideToPrev() {
@@ -108,6 +115,7 @@ class testimonialCarousel{
         this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
         this.slides[this.activeSlide].classList.remove('prev');
         this.slides[this.activeSlide].classList.add('active');
+        this.updateHeight();
         setTimeout(() => {
             this.slides.forEach((slide, index) => {
                 if (index !== this.activeSlide) slide.classList.add('prev');
