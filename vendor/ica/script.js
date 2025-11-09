@@ -98,7 +98,8 @@ class testimonialCarousel{
     
     updateHeight() {
         const activeSlide = this.slides[this.activeSlide];
-        this.carousel.style.height = activeSlide.offsetHeight + 'px';
+        const carouselInner = this.carousel.querySelector('.carousel-inner');
+        carouselInner.style.height = activeSlide.offsetHeight + 'px';
     }
 
     slideToNext() {
