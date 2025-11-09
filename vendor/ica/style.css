@@ -119,3 +119,7 @@
 .carousel-testimonial .carousel-item.prev {
     transform: translateX(-100%);
 }
+
+.carousel-testimonial .carousel-item.next {
+    transform: translateX(100%);
+}

@@ -80,10 +80,7 @@ class testimonialCarousel{
     }
     
     init() {
-        this.slides[0].classList.add('active');
-        this.slides.forEach((slide, index) => {
-            if (index !== 0) slide.classList.add('prev');
-        });
+        this.updateSlidePositions();
         this.updateHeight();
         this.bindEvents();
     }
@@ -102,26 +99,29 @@ class testimonialCarousel{
         carouselInner.style.height = activeSlide.offsetHeight + 'px';
     }
 
+    updateSlidePositions() {
+        this.slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'prev', 'next');
+            if (index === this.activeSlide) {
+                slide.classList.add('active');
+            } else if (index < this.activeSlide) {
+                slide.classList.add('prev');
+            } else {
+                slide.classList.add('next');
+            }
+        });
+    }
+
     slideToNext() {
-        this.slides[this.activeSlide].classList.remove('active');
-        this.slides[this.activeSlide].classList.add('prev');
         this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
-        this.slides[this.activeSlide].classList.remove('prev');
-        this.slides[this.activeSlide].classList.add('active');
+        this.updateSlidePositions();
         this.updateHeight();
     }
 
     slideToPrev() {
-        this.slides[this.activeSlide].classList.remove('active');
         this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.slides[this.activeSlide].classList.remove('prev');
-        this.slides[this.activeSlide].classList.add('active');
+        this.updateSlidePositions();
         this.updateHeight();
-        setTimeout(() => {
-            this.slides.forEach((slide, index) => {
-                if (index !== this.activeSlide) slide.classList.add('prev');
-            });
-        }, 50);
     }
 }
 
