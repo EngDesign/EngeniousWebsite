@@ -62,10 +62,50 @@ class Carousel {
     }
 }
 
-// Initialize all carousels
+// Initialize home carousel types
 document.querySelectorAll('.carousel').forEach(carousel => {
     new Carousel(carousel);
 });
 
+class testimonialCarousel{
+    constructor(carouselElement) {
+        this.carousel = carouselElement;
+        this.slides = carouselElement.querySelectorAll('.carousel-item');
+        this.totalSlides = this.slides.length;
+        this.activeSlide = 0;
+        this.interval = 5000;
+        this.time = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.slides[0].classList.add('active');
+        this.bindEvents();
+    }
+    
+    bindEvents() {
+        const leftControl = this.carousel.querySelector('.carousel-control-left');
+        const rightControl = this.carousel.querySelector('.carousel-control-right');
+        
+        leftControl?.addEventListener('click', () => this.slideToPrev());
+        rightControl?.addEventListener('click', () => this.slideToNext());
+    }
+    
+    slideToNext() {
+        this.slides[this.activeSlide].classList.remove('active');
+        this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+        this.slides[this.activeSlide].classList.add('active');
+    }
 
+    slideToPrev() {
+        this.slides[this.activeSlide].classList.remove('active');
+        this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.slides[this.activeSlide].classList.add('active');
+    }
+}
 
+// Initialize home carousel types
+document.querySelectorAll('.carousel-testimonial').forEach(carousel => {
+    new testimonialCarousel(carousel);
+});
