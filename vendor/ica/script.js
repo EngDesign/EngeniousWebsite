@@ -81,6 +81,9 @@ class testimonialCarousel{
     
     init() {
         this.slides[0].classList.add('active');
+        this.slides.forEach((slide, index) => {
+            if (index !== 0) slide.classList.add('prev');
+        });
         this.bindEvents();
     }
     
@@ -94,14 +97,22 @@ class testimonialCarousel{
     
     slideToNext() {
         this.slides[this.activeSlide].classList.remove('active');
+        this.slides[this.activeSlide].classList.add('prev');
         this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+        this.slides[this.activeSlide].classList.remove('prev');
         this.slides[this.activeSlide].classList.add('active');
     }
 
     slideToPrev() {
         this.slides[this.activeSlide].classList.remove('active');
         this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.slides[this.activeSlide].classList.remove('prev');
         this.slides[this.activeSlide].classList.add('active');
+        setTimeout(() => {
+            this.slides.forEach((slide, index) => {
+                if (index !== this.activeSlide) slide.classList.add('prev');
+            });
+        }, 50);
     }
 }
 

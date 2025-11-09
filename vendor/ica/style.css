@@ -96,7 +96,24 @@
     opacity: 1;
 }
 
-footer{
-    font-size: 13px;
-    color: #333;
+.carousel-testimonial {
+    overflow: hidden;
+}
+
+.carousel-testimonial .caoursel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.carousel-testimonial .caoursel-item.active {
+    transform: translateX(0);
+}
+
+.carousel-testimonial .caoursel-item.prev {
+    transform: translateX(-100%);
 }
