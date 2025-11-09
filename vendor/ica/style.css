@@ -100,7 +100,7 @@
     overflow: hidden;
 }
 
-.carousel-testimonial .caoursel-item {
+.carousel-testimonial .carousel-item {
     position: absolute;
     top: 0;
     left: 0;
@@ -108,12 +108,13 @@
     display: grid;
     transform: translateX(100%);
     transition: transform 0.5s ease;
+    opacity: 1;
 }
 
-.carousel-testimonial .caoursel-item.active {
+.carousel-testimonial .carousel-item.active {
     transform: translateX(0);
 }
 
-.carousel-testimonial .caoursel-item.prev {
+.carousel-testimonial .carousel-item.prev {
     transform: translateX(-100%);
 }
