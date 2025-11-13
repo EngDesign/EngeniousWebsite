@@ -110,18 +110,31 @@ class testimonialCarousel{
                 slide.classList.add('next');
             }
         });
+        this.updateArrowStates();
+    }
+
+    updateArrowStates() {
+        const leftControl = this.carousel.querySelector('.carousel-control-left');
+        const rightControl = this.carousel.querySelector('.carousel-control-right');
+        
+        leftControl?.classList.toggle('disabled', this.activeSlide === 0);
+        rightControl?.classList.toggle('disabled', this.activeSlide === this.totalSlides - 1);
     }
 
     slideToNext() {
-        this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
-        this.updateSlidePositions();
-        this.updateHeight();
+        if (this.activeSlide < this.totalSlides - 1) {
+            this.activeSlide++;
+            this.updateSlidePositions();
+            this.updateHeight();
+        }
     }
 
     slideToPrev() {
-        this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.updateSlidePositions();
-        this.updateHeight();
+        if (this.activeSlide > 0) {
+            this.activeSlide--;
+            this.updateSlidePositions();
+            this.updateHeight();
+        }
     }
 }
 

@@ -73,6 +73,13 @@
     opacity: 1;
 }
 
+.carousel-control-left.disabled,
+.carousel-control-right.disabled {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+}
+
 .carousel-indicators{
     position: absolute;
     bottom: 12px;
@@ -107,6 +114,7 @@
     left: 0;
     width: 100%;
     display: grid;
+    align-items: stretch;
     transform: translateX(100%);
     transition: transform 0.5s ease;
     opacity: 1;
