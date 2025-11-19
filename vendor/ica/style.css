@@ -109,10 +109,6 @@
 }
 
 .carousel-testimonial .carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     display: grid;
     align-items: stretch;
     transform: translateX(100%);
