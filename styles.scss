@@ -146,11 +146,11 @@ $white: #F5F5F5;
           transform: translateX(-50px);
         }
       }
-    }
-  }
 
-  @media screen and (min-width: $minWidth) {
-    height: $accordionHeight;
+      @media screen and (min-width: $minWidth) {
+        height: $accordionHeight;
+      }
+    }
   }
 }
 
