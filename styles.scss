@@ -147,9 +147,10 @@ $white: #F5F5F5;
         }
       }
 
-      @media screen and (min-width: $minWidth) {
-        height: $accordionHeight;
-      }
+    }
+
+    @media screen and (min-width: $minWidth) {
+      height: $accordionHeight;
     }
   }
 }
