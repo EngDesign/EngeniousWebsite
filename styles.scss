@@ -5,13 +5,9 @@ $white: #F5F5F5;
 
 .accordion-content {
   overflow: hidden;
-  // max-height: 0;
   transition: 0.4s ease-out;
   opacity: 0;
-
-  // >* {
-  //   max-height: 0;
-  // }
+  interpolate-size: allow-keywords;
 }
 
 .accordion-container {
@@ -97,13 +93,8 @@ $white: #F5F5F5;
       }
 
       .accordion-content {
-        // max-height: 20rem;
         opacity: 1;
         padding: 1rem;
-
-        // >* {
-        //   max-height: 20rem;
-        // }
       }
     }
 
