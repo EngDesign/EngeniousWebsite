@@ -3,6 +3,7 @@
   overflow: hidden;
   transition: 0.4s ease-out;
   opacity: 0;
+  interpolate-size: allow-keywords;
 }
 
 .accordion-container {
