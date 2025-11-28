@@ -7,7 +7,6 @@ $white: #F5F5F5;
   overflow: hidden;
   transition: 0.4s ease-out;
   opacity: 0;
-  interpolate-size: allow-keywords;
 }
 
 .accordion-container {
@@ -106,7 +105,8 @@ $white: #F5F5F5;
       border-bottom: 1px solid #303030;
       
       .accordion-content {
-        height: 0;
+        height: fit-content;
+        max-height: 0;
 
         p {
           margin: 0 0 1rem;
@@ -115,7 +115,7 @@ $white: #F5F5F5;
 
       &.is-open {
         .accordion-content {
-          height: fit-content;
+          max-height: 30rem;
         }
       }
     }
