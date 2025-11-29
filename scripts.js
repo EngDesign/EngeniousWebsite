@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (accordionImages[itemIndex]) {
           accordionImages[itemIndex].classList.add('is-open');
         }
+      } else {
+        // If all accordions are closed and there are images, show first image
+        const hasOpenAccordion = document.querySelector('.accordion-item.is-open');
+        if (!hasOpenAccordion && accordionImages.length > 0) {
+          accordionImages[0].classList.add('is-open');
+        }
       }
     });
   });

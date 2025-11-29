@@ -138,7 +138,7 @@ class testimonialCarousel{
     }
 }
 
-// Initialize home carousel types
+// Initialize testimonial carousel types
 document.querySelectorAll('.carousel-testimonial').forEach(carousel => {
     new testimonialCarousel(carousel);
 });
