@@ -116,4 +116,20 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modal) closeModal();
   });
+
+  /**
+   * Custom About Nav Toggle functionality
+   */
+  const aboutLink = document.getElementById('about-link');
+
+  if (aboutLink) {
+    aboutLink.addEventListener('click', function(e) {
+      // 991px is the standard Webflow tablet/desktop boundary. 
+      // Adjust this number if your mobile nav breaks at a different point.
+      if (window.innerWidth > 991) {
+        e.stopPropagation();  // Stops Webflow from seeing the click (prevents dropdown toggle)
+        window.location.href = '/about';
+      }
+    });
+  }
 });
