@@ -37,3 +37,7 @@ Add to Custom Code settings in Webflow. Replace `commit_hash` with actual number
 `<script defer src="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@commit_hash/scripts.js"></script>`
 `<script defer src="https://cdn.jsdelivr.net/gh/EngDesign/EngeniousWebsite@commit_hash/vendor/ica/script.js"></script>`
 
+## Link Crawler
+Python3 script to crawl the site for broken links. @TODO update from the webflow domain to the production domain.
+`pip3 install requests beautifulsoup4` to install dependency
+`python3 crawler.py` to crawl the site and generate a CSV that includes broken links and placeholder "#" links.
