@@ -201,7 +201,8 @@
 .team-checkbox-form .team-checkbox-field.active::before {
   content: url("./icons/check_icon.svg");
   position: absolute;
-  left: 5px;
+  left: 6px;
+  top: 8px;
 }
 
 /*# sourceMappingURL=styles.css.map */

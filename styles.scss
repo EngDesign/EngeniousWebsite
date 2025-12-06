@@ -249,7 +249,8 @@ $white: #F5F5F5;
     &::before {
       content: url('./icons/check_icon.svg');
       position: absolute;
-      left: 5px;
+      left: 6px;
+      top: 8px;
     }
   }
 }
