@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       const selectedRole = checkedRadio.value;
       teamItems.forEach(item => {
-        const role = item.getAttribute('data-role');
-        item.style.display = role === selectedRole ? 'block' : 'none';
+        const rolesData = item.getAttribute('data-role');
+        const roles = rolesData ? rolesData.split(';').map(r => r.trim()) : [];
+        item.style.display = roles.includes(selectedRole) ? 'block' : 'none';
       });
     }
   }
