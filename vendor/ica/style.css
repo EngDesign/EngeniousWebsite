@@ -127,3 +127,31 @@
 .carousel-testimonial .carousel-item.next {
     transform: translateX(100%);
 }
+
+.component-logo-slider {
+    --logos-visible: 2;
+    overflow: hidden;
+    container-type: inline-size;
+}
+
+@media screen and (min-width: 768px) {
+    .component-logo-slider {
+        --logos-visible: 6;
+    }
+}
+
+.logo-slider-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+}
+
+/* Each logo fills an equal slot of the slider width; padding provides the spacing */
+.logo-slider-track .slider-logo {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: calc(100cqw / var(--logos-visible));
+    height: auto;
+    padding: 0 2rem;
+}

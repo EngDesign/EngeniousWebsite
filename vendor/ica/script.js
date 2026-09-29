@@ -142,3 +142,95 @@ class testimonialCarousel{
 document.querySelectorAll('.carousel-testimonial').forEach(carousel => {
     new testimonialCarousel(carousel);
 });
+
+class LogoSlider {
+    constructor(sliderElement) {
+        this.slider = sliderElement;
+        this.logos = Array.from(sliderElement.querySelectorAll('.slider-logo'));
+        this.speed = parseFloat(sliderElement.dataset.speed) || 30; // pixels per second
+        this.offset = 0;
+        this.setWidth = 0;
+        this.paused = false;
+        this.lastTime = null;
+
+        this.init();
+    }
+
+    init() {
+        if (!this.logos.length) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        // Move the logos into a track that can be translated as one strip
+        this.track = document.createElement('div');
+        this.track.className = 'logo-slider-track';
+        this.logos.forEach(logo => {
+            logo.loading = 'eager'; // lazy images outside the visible strip would pop in late
+            this.track.appendChild(logo);
+        });
+        this.slider.appendChild(this.track);
+
+        this.fill();
+        this.bindEvents();
+        requestAnimationFrame(time => this.step(time));
+    }
+
+    // Append copies of the logo set until the track covers the slider plus one full set,
+    // so wrapping the offset back by one set width is invisible.
+    fill() {
+        this.track.querySelectorAll('.is-clone').forEach(clone => clone.remove());
+
+        const firstClone = this.addSet();
+        this.setWidth = firstClone.offsetLeft - this.logos[0].offsetLeft;
+        if (this.setWidth <= 0) return; // slider is hidden, nothing to measure
+
+        while (this.track.scrollWidth < this.slider.offsetWidth + this.setWidth) {
+            this.addSet();
+        }
+        this.offset %= this.setWidth;
+    }
+
+    addSet() {
+        const clones = this.logos.map(logo => {
+            const clone = logo.cloneNode(true);
+            clone.classList.add('is-clone');
+            clone.setAttribute('aria-hidden', 'true');
+            clone.alt = '';
+            this.track.appendChild(clone);
+            return clone;
+        });
+        return clones[0];
+    }
+
+    bindEvents() {
+        this.slider.addEventListener('mouseenter', () => {
+            this.paused = true;
+        });
+
+        this.slider.addEventListener('mouseleave', () => {
+            this.paused = false;
+        });
+
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => this.fill(), 200);
+        });
+        window.addEventListener('load', () => this.fill());
+    }
+
+    step(time) {
+        if (this.lastTime !== null && !this.paused && this.setWidth > 0) {
+            // Cap the frame delta so returning to a background tab doesn't jump
+            const delta = Math.min(time - this.lastTime, 100) / 1000;
+            this.offset = (this.offset + this.speed * delta) % this.setWidth;
+            this.track.style.transform = `translate3d(${-this.offset}px, 0, 0)`;
+        }
+        this.lastTime = time;
+        requestAnimationFrame(t => this.step(t));
+    }
+}
+
+// Initialize logo sliders
+document.querySelectorAll('.component-logo-slider').forEach(slider => {
+    new LogoSlider(slider);
+});

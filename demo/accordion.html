@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../vendor/ica/style.css">
+</head>
+
+<body>
+
+  <!-- 
+      Accordion:
+      - Build this structure visually in the Webflow Designer.
+      - Inline classes for all tags are assumed to be included in Webflow.
+      - The top-level element is a Div Block with the class "accordion-container".
+      - Inside, each accordion is a Div Block with the class "accordion-item".
+      - Each "accordion-item" contains a Div Block with class "accordion-wrapper".
+      - Inside the wrapper, you'll have the "accordion-header" Div Block and the "accordion-content" Div Block.
+      - The second column requires the class "accordion-image-wrapper". It should have the same number of children as there are accordion items.
+  -->
+  <div class="w-row" style="display: flex;">
+    <div class="w-col" style="width: 50%">
+      <div class="accordion-container accordion-container-images" style="display:flex; flex-direction: column; height: 100%;">
+        <div class="accordion-item is-open">
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Rapid prototyping</h2>
+            </div>
+            <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Medical device startup help</h2>
+            </div>
+            <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-wrapper">
+            <div class="accordion-header">
+              <h2>Help getting acquired</h2>
+            </div>
+            <div class="accordion-content">
+              <p>Quickly testing product-market fit with a functional prototype ventilator</p>
+              <a href="">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-col accordion-image-wrapper">
+      <img src="https://placehold.co/400x600/orange/white" class="is-open" />
+      <img src="https://placehold.co/400x600/black/white" />
+      <img src="https://placehold.co/400x600" />
+    </div>
+  </div>
+  <script src="../scripts.js"></script>
+  <script src="../vendor/ica/script.js"></script>
+</body>
+
+</html>

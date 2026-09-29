@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Slider</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../vendor/ica/style.css">
+  <!-- Mirrors the slider-logo styles set in Webflow -->
+  <style>
+    .slider-logo { width: 150px; height: auto; }
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+      Logo Slider:
+      - Div Block with the class "component-logo-slider", containing images with the class "slider-logo".
+      - Logos scroll continuously and loop seamlessly; hovering pauses the slider.
+      - Shows 6 logos at a time on desktop, 2 below 768px (set by --logos-visible in vendor/ica/style.css).
+      - Optional custom attribute "data-speed" on the Div Block sets the speed in pixels per second (default 30).
+  -->
+  <div class="component-logo-slider">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27068c9202ebdb533eaf_MDT_BIG.D%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27064ea1ef171d986ea0_Abbott_Laboratories_2025_logo%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27065b9583693e54cb1b_Becton_Dickinson_logo%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27066792cda7e058c7c3_BAX_BIG.D%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb2706eb627a3a845540f2_PRCT_BIG%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb270628d72d570d2624dc_Blue_Origin_new_logo%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27068c9202ebdb533ec3_CAH_BIG.D%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb2706e31e377d68bf3f19_CNMD_BIG.D%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb27061d0614290663d467_verathon%20logo.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb270628d72d570d2624b6_KUMC_scr_UnitHorz_BW%201.png" loading="lazy" alt="" class="slider-logo">
+    <img src="https://cdn.prod.website-files.com/68a496aa306f32134ed56d6b/6abb2706ef1617a3dcd37edf_MX%20Meter%20Logo_%20greyscale%201.png" loading="lazy" alt="" class="slider-logo">
+  </div>
+  <script src="../scripts.js"></script>
+  <script src="../vendor/ica/script.js"></script>
+</body>
+
+</html>

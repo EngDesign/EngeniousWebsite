@@ -8,6 +8,9 @@ Provides styling and JS for custom Webflow components.
 
 `scripts.js` is used as is.
 
+## Demos
+Each component has its own page in `/demo` (linked from `index.html`) so their scripts don't interfere with each other.
+
 ## Custom Components
 - Accordions
 
