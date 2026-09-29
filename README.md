@@ -6,6 +6,8 @@ Provides styling and JS for custom Webflow components.
 1. Install Dependencies `pnpm install`.
 2. Run `npm run watch` to compile scss to css.
 
+Make theme style changes in `styles.scss`, never in `styles.css` directly — `styles.css` is compiled output and is overwritten on every build/watch. `vendor/ica/style.css` is not compiled and is edited directly.
+
 `scripts.js` is used as is.
 
 ## Demos

@@ -129,14 +129,20 @@
 }
 
 .component-logo-slider {
-    --logos-visible: 2;
+    --logos-visible: 3;
     overflow: hidden;
     container-type: inline-size;
 }
 
 @media screen and (min-width: 768px) {
     .component-logo-slider {
-        --logos-visible: 6;
+        --logos-visible: 5;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .component-logo-slider {
+        --logos-visible: 8;
     }
 }
 
