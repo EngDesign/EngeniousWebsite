@@ -2,6 +2,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const accordionHeaders = document.querySelectorAll('.accordion-header');
   const accordionImages = document.querySelectorAll('.accordion-image-wrapper img');
 
+  // Accordion content animates max-height to its measured height instead of
+  // a fixed CSS value, so opening and closing items move in sync.
+  function expandContent(content) {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.addEventListener('transitionend', function onEnd(e) {
+      if (e.propertyName !== 'max-height') return;
+      content.removeEventListener('transitionend', onEnd);
+      // Let the content reflow freely once open (e.g. on window resize)
+      if (content.closest('.accordion-item').classList.contains('is-open')) {
+        content.style.maxHeight = 'none';
+      }
+    });
+  }
+
+  function collapseContent(content) {
+    // Pin the current height, force a reflow, then transition down to 0
+    content.style.maxHeight = content.scrollHeight + 'px';
+    void content.offsetHeight;
+    content.style.maxHeight = '0px';
+  }
+
   accordionHeaders.forEach(header => {
     header.addEventListener('click', function() {
       const currentItem = this.closest('.accordion-item');
@@ -10,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // First, close all accordion items and images
       document.querySelectorAll('.accordion-item').forEach(item => {
+        if (item.classList.contains('is-open')) {
+          collapseContent(item.querySelector('.accordion-content'));
+        }
         item.classList.remove('is-open');
       });
       accordionImages.forEach(img => {
@@ -19,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // If the clicked item wasn't already open, open it and corresponding image
       if (!wasOpen) {
         currentItem.classList.add('is-open');
+        expandContent(currentItem.querySelector('.accordion-content'));
         if (accordionImages[itemIndex]) {
           accordionImages[itemIndex].classList.add('is-open');
         }
