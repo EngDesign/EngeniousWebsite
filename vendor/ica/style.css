@@ -140,9 +140,10 @@
     }
 }
 
+/* Capped at 6 from laptop up so each logo (and the slider height) scales with the viewport instead of adding more logos */
 @media screen and (min-width: 1024px) {
     .component-logo-slider {
-        --logos-visible: 8;
+        --logos-visible: 6;
     }
 }
 
