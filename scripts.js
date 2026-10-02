@@ -4,13 +4,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Accordion content animates max-height to its measured height instead of
   // a fixed CSS value, so opening and closing items move in sync.
-  function expandContent(content) {
-    content.style.maxHeight = content.scrollHeight + 'px';
+  function expandContent(item, content) {
+    // Measure the final open height with transitions off, then revert before
+    // animating. Nothing paints in between, so the transition runs from the
+    // closed state to an exact target with no snap at the end.
+    content.style.transition = 'none';
+    content.style.maxHeight = 'none';
+    item.classList.add('is-open');
+    const style = getComputedStyle(content);
+    let target = content.scrollHeight;
+    if (style.boxSizing !== 'border-box') {
+      target -= parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+    }
+    item.classList.remove('is-open');
+    content.style.maxHeight = '0px';
+    void content.offsetHeight;
+    content.style.transition = '';
+
+    item.classList.add('is-open');
+    content.style.maxHeight = target + 'px';
     content.addEventListener('transitionend', function onEnd(e) {
       if (e.propertyName !== 'max-height') return;
       content.removeEventListener('transitionend', onEnd);
       // Let the content reflow freely once open (e.g. on window resize)
-      if (content.closest('.accordion-item').classList.contains('is-open')) {
+      if (item.classList.contains('is-open')) {
         content.style.maxHeight = 'none';
       }
     });
@@ -42,8 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // If the clicked item wasn't already open, open it and corresponding image
       if (!wasOpen) {
-        currentItem.classList.add('is-open');
-        expandContent(currentItem.querySelector('.accordion-content'));
+        expandContent(currentItem, currentItem.querySelector('.accordion-content'));
         if (accordionImages[itemIndex]) {
           accordionImages[itemIndex].classList.add('is-open');
         }
